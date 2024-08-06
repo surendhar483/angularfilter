@@ -1,0 +1,55 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('Vegetable')">
+                <img style="margin-bottom: 15px;"
+                    src="https://www.bigbasket.com/media/uploads/p/m/50000513_3-fresho-chilli-green-organically-grown.jpg?tr=w-1920,q=80"
+                    alt="">
+                <h6>Vegetable</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwDlsTdMHwebRRCOtDnRbgNrfjiAycMzClYIx7sio4JgPdH_6Ja4Rh&usqp=CAE&s"
+                    alt="">
+                <h6>makeupKit</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img style="width: 62px; margin-top: 5px;"
+                    src=" https://ii1.pepperfry.com/media/wysiwyg/banners/Frame_360_14062024_3.jpg"
+                    alt="">
+                <h6>furniture</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container"> 
+
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title' ">
+            <div class="card col-md-3">
+                <img src="{{item.images[0]}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.description}}</p>
+                <p><strong>Price:</strong>&#8377;{{item.price *100}}</p>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'price' ">
+            
+        </ng-container>
+        
+
+    </div>
+</div>
